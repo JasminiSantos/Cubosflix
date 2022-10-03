@@ -69,7 +69,7 @@ function refreshMovies(){
 
         const movieRating = document.createElement('span');
         movieRating.classList.add('movie__rating');
-        movieRating.textContent = `${allMovies[i].vote_average}`
+        movieRating.textContent = `${allMovies[i].vote_average.toFixed(1)}`
 
         const estrela = document.createElement('img');
         estrela.src = "./assets/estrela.svg";
@@ -99,7 +99,7 @@ function refreshMovies(){
                 modalImage.src = body.backdrop_path;
                 modalTitle.textContent = body.title;
                 modalDescription.textContent = body.overview;
-                modalRating.textContent = body.vote_average;                
+                modalRating.textContent = body.vote_average.toFixed(1);                
                 modalGenres.innerHTML = "";
                 const file = document.querySelector('html');
                 file.classList.add('no__scroll'); 
@@ -140,7 +140,7 @@ function refreshMovies(){
     
                     movie.style.backgroundImage = (`url(${allMovies[allMovies.length-i].poster_path})`);
                     title.textContent = allMovies[allMovies.length-i].title;
-                    rating.textContent = allMovies[allMovies.length-i].vote_average;
+                    rating.textContent = allMovies[allMovies.length-i].vote_average.toFixed(1);
                     i--;
                 });
             }
@@ -152,7 +152,7 @@ function refreshMovies(){
     
                     movie.style.backgroundImage = (`url(${allMovies[index-i].poster_path})`);
                     title.textContent = allMovies[index-i].title;
-                    rating.textContent = allMovies[index-i].vote_average;
+                    rating.textContent = allMovies[index-i].vote_average.toFixed(1);
                     i--;
                 });
             }
@@ -170,7 +170,7 @@ function refreshMovies(){
     
                     movie.style.backgroundImage = (`url(${allMovies[index].poster_path})`);
                     title.textContent = allMovies[index].title;
-                    rating.textContent = allMovies[index].vote_average;
+                    rating.textContent = allMovies[index].vote_average.toFixed(1);
                 });             
             }
             else{
@@ -181,7 +181,7 @@ function refreshMovies(){
     
                     movie.style.backgroundImage = (`url(${allMovies[index+i].poster_path})`);
                     title.textContent = allMovies[index+i].title;
-                    rating.textContent = allMovies[index+i].vote_average;
+                    rating.textContent = allMovies[index+i].vote_average.toFixed(1);
                     i++;
                 });
             }
@@ -220,7 +220,7 @@ fetch('https://tmdb-proxy.cubos-academy.workers.dev/3/movie/436969?language=pt-B
         highlightTitle.textContent = body.title;
 
         const highlightRating = document.querySelector('.highlight__rating');
-        highlightRating.textContent = body.vote_average;
+        highlightRating.textContent = body.vote_average.toFixed(1);
 
         let genres = [];
         body.genres.forEach(genre =>{
